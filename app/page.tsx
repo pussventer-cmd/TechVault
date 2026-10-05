@@ -1,274 +1,240 @@
-const categories = [
-  "PCs",
-  "Keyboards",
-  "Mice",
-  "Headsets",
-  "Monitors",
-  "Microphones",
-  "Desks",
-  "Lighting",
-]
-
-const products = [
-  {
-    name: "Gaming PCs",
-    description: "Find powerful PCs from real sellers.",
-  },
-  {
-    name: "Keyboards",
-    description: "Mechanical, magnetic and everything between.",
-  },
-  {
-    name: "Mice",
-    description: "Lightweight, wireless and competitive.",
-  },
-  {
-    name: "Headsets",
-    description: "Hear every step. Miss nothing.",
-  },
-]
+import Link from "next/link"
+import { creators } from "@/lib/creators"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
-
       {/* NAVBAR */}
-      <nav className="border-b border-white/10">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-
-          <a href="/" className="text-xl font-black tracking-[0.25em]">
+      <nav className="border-b border-white/10 px-6">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between">
+          <Link href="/" className="text-xl font-bold tracking-tight">
             TECHVAULT
-          </a>
+          </Link>
 
-          <div className="hidden gap-8 text-sm text-white/60 md:flex">
-            <a href="/products" className="transition hover:text-white">
+          <div className="hidden items-center gap-8 text-sm text-white/50 md:flex">
+            <Link href="/" className="transition hover:text-white">
               Browse
-            </a>
+            </Link>
 
-            <a href="/creators" className="transition hover:text-white">
+            <Link href="/creators" className="transition hover:text-white">
               Creators
-            </a>
+            </Link>
 
-            <a href="/deals" className="transition hover:text-white">
+            <Link href="/categories/pcs" className="transition hover:text-white">
               Deals
-            </a>
+            </Link>
           </div>
 
-          <button className="border border-white/20 px-4 py-2 text-sm transition hover:bg-white hover:text-black">
+          <Link
+            href="/products"
+            className="border border-white/20 px-5 py-2 text-sm transition hover:border-white/50 hover:bg-white hover:text-black"
+          >
             Search
-          </button>
-
+          </Link>
         </div>
       </nav>
 
-
       {/* HERO */}
-<section className="mx-auto flex min-h-[75vh] max-w-7xl items-center px-6">
+      <section className="px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-7xl">
+          <p className="mb-5 text-xs uppercase tracking-[0.35em] text-white/30">
+            TECH DISCOVERY
+          </p>
 
-  <div className="grid w-full items-center gap-16 md:grid-cols-2">
+          <h1 className="max-w-4xl text-5xl font-bold tracking-tight md:text-7xl">
+            FIND YOUR
+            <br />
+            <span className="text-white/30">TECH.</span>
+          </h1>
 
-    {/* LEFT */}
-    <div>
+          <p className="mt-8 max-w-xl text-lg text-white/40">
+            Tech by the people, for the people.
+          </p>
 
-      <p className="mb-6 text-xs font-bold uppercase tracking-[0.4em] text-white/40">
-        The tech vault
-      </p>
+          <Link
+            href="/products"
+            className="mt-10 inline-block border border-white/20 px-7 py-4 text-sm transition hover:border-white hover:bg-white hover:text-black"
+          >
+            EXPLORE TECH →
+          </Link>
+        </div>
+      </section>
 
-      <h1 className="max-w-5xl text-6xl font-black leading-[0.9] tracking-[-0.05em] md:text-8xl">
-        FIND
-        <br />
-        YOUR
-        <br />
-        TECH.
-      </h1>
-
-      <p className="mt-8 text-lg text-white/40">
-        Tech by the people, for the people.
-      </p>
-
-      {/* SEARCH */}
-      <div className="mt-10 flex max-w-2xl">
-
-        <input
-          type="text"
-          placeholder="Search for anything..."
-          className="w-full border border-white/20 bg-transparent px-5 py-4 text-white outline-none placeholder:text-white/20 focus:border-white"
-        />
-
-        <button className="border border-l-0 border-white/20 px-7 font-bold transition hover:bg-white hover:text-black">
-          SEARCH
-        </button>
-
-      </div>
-
-    </div>
-
-
-    {/* MINIMALIST VOID LOGO */}
-    <div className="hidden items-center justify-center md:flex">
-
-      <div className="relative flex h-80 w-80 items-center justify-center">
-
-        {/* Outer circle */}
-        <div className="absolute h-64 w-64 rounded-full border border-white/20" />
-
-        {/* Minimal V mark */}
-        <svg
-          width="150"
-          height="150"
-          viewBox="0 0 150 150"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M25 35L75 115L125 35"
-            stroke="white"
-            strokeWidth="5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-
-          <path
-            d="M55 35L75 68L95 35"
-            stroke="white"
-            strokeWidth="5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-
-        {/* Tiny dot */}
-        <div className="absolute bottom-12 h-1.5 w-1.5 rounded-full bg-white" />
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-      {/* FEATURED */}
-      <section className="border-t border-white/10">
-
-        <div className="mx-auto max-w-7xl px-6 py-24">
-
-          <div className="mb-12">
-
-            <p className="mb-3 text-xs uppercase tracking-[0.3em] text-white/30">
-              Discover
+      {/* FEATURED TECH */}
+      <section className="border-t border-white/10 px-6 py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/30">
+              EXPLORE
             </p>
 
-            <h2 className="text-4xl font-black tracking-tight">
+            <h2 className="mt-3 text-3xl font-bold md:text-4xl">
               FEATURED TECH
             </h2>
-
           </div>
 
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <Link
+              href="/categories/pcs"
+              className="group border border-white/10 p-6 transition hover:border-white/30"
+            >
+              <div className="flex h-40 items-center justify-center bg-white/[0.03]">
+                <span className="text-4xl">🖥️</span>
+              </div>
 
-          <div className="grid gap-px bg-white/10 md:grid-cols-2">
+              <h3 className="mt-5 font-semibold">Gaming PCs</h3>
 
-            {products.map((product) => (
-              <a
-                key={product.name}
-                href="/products"
-                className="group bg-black p-10 transition hover:bg-white hover:text-black"
-              >
+              <p className="mt-2 text-sm text-white/30">
+                Explore gaming PCs
+              </p>
+            </Link>
 
-                <div className="flex min-h-[220px] flex-col justify-between">
+            <Link
+              href="/categories/keyboards"
+              className="group border border-white/10 p-6 transition hover:border-white/30"
+            >
+              <div className="flex h-40 items-center justify-center bg-white/[0.03]">
+                <span className="text-4xl">⌨️</span>
+              </div>
 
-                  <div className="flex justify-between">
+              <h3 className="mt-5 font-semibold">Keyboards</h3>
 
-                    <span className="text-xs uppercase tracking-[0.25em] text-white/30 group-hover:text-black/40">
-                      Featured
-                    </span>
+              <p className="mt-2 text-sm text-white/30">
+                Find your keyboard
+              </p>
+            </Link>
 
-                    <span className="text-white/30 group-hover:text-black/40">
-                      ↗
-                    </span>
+            <Link
+              href="/categories/mice"
+              className="group border border-white/10 p-6 transition hover:border-white/30"
+            >
+              <div className="flex h-40 items-center justify-center bg-white/[0.03]">
+                <span className="text-4xl">🖱️</span>
+              </div>
 
-                  </div>
+              <h3 className="mt-5 font-semibold">Mice</h3>
 
+              <p className="mt-2 text-sm text-white/30">
+                Find your mouse
+              </p>
+            </Link>
 
-                  <div>
+            <Link
+              href="/categories/headsets"
+              className="group border border-white/10 p-6 transition hover:border-white/30"
+            >
+              <div className="flex h-40 items-center justify-center bg-white/[0.03]">
+                <span className="text-4xl">🎧</span>
+              </div>
 
-                    <h3 className="text-3xl font-black">
-                      {product.name}
-                    </h3>
+              <h3 className="mt-5 font-semibold">Headsets</h3>
 
-                    <p className="mt-3 max-w-md text-white/40 group-hover:text-black/50">
-                      {product.description}
-                    </p>
-
-                  </div>
-
-                </div>
-
-              </a>
-            ))}
-
+              <p className="mt-2 text-sm text-white/30">
+                Find your headset
+              </p>
+            </Link>
           </div>
-
         </div>
-
       </section>
-
 
       {/* CREATOR SECTION */}
-      <section className="border-t border-white/10">
-
-        <div className="mx-auto max-w-7xl px-6 py-32">
-
-          <div className="max-w-3xl">
-
-            <p className="mb-5 text-xs uppercase tracking-[0.3em] text-white/30">
-              Built by the community
+      <section className="border-t border-white/10 px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10">
+            <p className="text-xs uppercase tracking-[0.3em] text-purple-400">
+              CREATOR GEAR
             </p>
 
-            <h2 className="text-5xl font-black leading-none tracking-tight md:text-7xl">
-              SEE WHAT
-              <br />
-              CREATORS
-              <br />
-              USE.
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+              SEE WHAT CREATORS USE
+              <span className="text-purple-400">.</span>
             </h2>
 
-            <p className="mt-8 max-w-xl text-white/40">
-              Discover real setups and the gear behind them.
-              Creators can share their favourite tech with the community.
+            <p className="mt-4 text-white/40">
+              Tech by the people, for the people.
             </p>
-
-            <a
-              href="/creators"
-              className="mt-8 inline-block border border-white px-6 py-3 text-sm font-bold transition hover:bg-white hover:text-black"
-            >
-              EXPLORE CREATORS →
-            </a>
-
           </div>
 
-        </div>
+          {/* SMALL SQUARE CARDS */}
+          <div className="flex flex-wrap justify-center gap-6">
+            {creators.map((creator) => (
+              <div
+                key={creator.id}
+                className="w-[260px]"
+              >
+                <Link
+                  href={`/creators/${creator.id}`}
+                  className="group relative block aspect-square overflow-hidden border border-purple-400/30 bg-white/[0.03] transition hover:border-purple-400"
+                >
+                  <img
+                    src={creator.image}
+                    alt={creator.name}
+                    className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
 
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-purple-400">
+                      {creator.role}
+                    </p>
+
+                    <h3 className="mt-1 text-xl font-bold">
+                      {creator.name}
+                    </h3>
+
+                    <p className="mt-1 text-xs text-white/40">
+                      {creator.handle}
+                    </p>
+                  </div>
+                </Link>
+
+                <div className="mt-2 border border-white/10">
+                  {creator.gear.slice(0, 3).map((item) => (
+                    <div
+                      key={item.label}
+                      className="flex justify-between gap-2 border-b border-white/5 px-3 py-2 text-[10px] last:border-0"
+                    >
+                      <span className="text-white/30">
+                        {item.label}
+                      </span>
+
+                      <span className="max-w-[150px] truncate text-right text-white/60">
+                        {item.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href={`/creators/${creator.id}`}
+                  className="mt-2 block border border-white/10 px-3 py-2 text-center text-[10px] font-medium tracking-widest text-white/40 transition hover:border-purple-400 hover:text-white"
+                >
+                  VIEW CREATOR →
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href="/creators"
+              className="inline-block border border-white/10 px-6 py-3 text-sm text-white/50 transition hover:border-purple-400 hover:text-white"
+            >
+              VIEW ALL CREATORS →
+            </Link>
+          </div>
+        </div>
       </section>
 
-
       {/* FOOTER */}
-      <footer className="border-t border-white/10">
+      <footer className="border-t border-white/10 px-6 py-10">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-white/30 md:flex-row">
+          <p>© 2026 TECHVAULT</p>
 
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 px-6 py-10 text-xs text-white/30 md:flex-row">
-
-          <span className="font-bold tracking-[0.25em]">
-            TECHVAULT
-          </span>
-
-          <span>
-            Find it. Click it. Own it.
-          </span>
-
+          <p>Tech by the people, for the people.</p>
         </div>
-
       </footer>
-
     </main>
   )
 }
